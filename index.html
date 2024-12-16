@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl-Pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styl1.css">
+    <link rel="shortcut icon" href="obraz.png">
+    <title>Sklep-rejestracja</title>
+</head>
+
+
+<body>
+    <section id="boczny">
+        <img src="obraz.png" alt="promocje">
+        <h2>Sprawdż promocje</h2>
+        <table>
+            <tr>
+                <th>co?</th><th>ile taniej?</th>
+            </tr>
+            <tr>
+                <td>ubrani</td><td>15%</td>
+            </tr>
+            <tr>
+                <td>buty</td><td>25%</td>
+            </tr>
+        </table>
+    </section>
+    <section id="baner">
+        <h1>Zarejestruj się w sklepie</h1>
+    </section>
+    <section id="glowny">
+        <section id="buttons">
+            <button onclick="showBlock1()">Klient</button>
+            <button onclick="showBlock2()">Adres</button>
+            <button onclick="showBlock3()">Kontakt</button>
+        </section>
+        <section id="middle">
+            <div id="block1" style="display: none;" >
+                <p>Imię</p>
+                <input type="text" id="name" class="data" placeholder="Wpisz dane..." onblur="pasekRosne()">
+                <p>Nazwisko</p>
+                <input type="text" id="name2" onblur="pasekRosne()">
+                <p>Data urodzenia</p>
+                <input type="date" id="date" placeholder="dd.mm.rrrr" onblur="pasekRosne()">
+            </div>
+            <div id="block2" style="display:none;" >
+                <p>Ulica</p>
+                <input type="text" id="street" onblur="pasekRosne()">
+                <p>Numer</p>
+                <input type="number" id="house" id="" onblur="pasekRosne()">
+                <p>Miasto</p>
+                <input type="text" id="city" onblur="pasekRosne()">
+            </div>
+            <div id="block3" style="display: none;" >
+                <p>Numer komurkowy</p>
+                <input type="tel" id="tel" id="" placeholder="111222333" onblur="pasekRosne()"><br>
+                <input type="checkbox" id="check" checked> Akceptuję RODO<br>
+                <button onclick="zatwierdz()">Zatwierdż<br>dane</button>
+            </div>
+        </section>
+        <script>
+            function showBlock1(){
+                document.querySelector('#block1').style.display='block';
+                document.querySelector('#block3').style.display='none';
+                document.querySelector('#block2').style.display='none';
+            }
+            function showBlock2(){
+                document.querySelector('#block1').style.display='none';
+                document.querySelector('#block2').style.display='block';
+                document.querySelector('#block3').style.display='none';
+            }
+            function showBlock3(){
+                document.querySelector('#block1').style.display='none';
+                document.querySelector('#block2').style.display='none';
+                document.querySelector('#block3').style.display='block';
+            }
+            let addWidth = 4;
+            function pasekRosne(){
+                addWidth += 12;
+                if(addWidth>100) addWidth=100;
+                document.querySelector('#pusty').style.width=addWidth+'%';
+            }
+            function zatwierdz(){
+                let name = document.querySelector('#name').value;
+                let name2 = document.querySelector('#name2').value;
+                let date = document.querySelector('#date').value;
+                let street = document.querySelector('#street').value;
+                let house = document.querySelector('#house').value;
+                let city = document.querySelector('#city').value;
+                let tel = document.querySelector('#tel').value;
+                let check = document.querySelector('#check').checked;
+                if(check) check='ok'
+            console.log (name +','+ name2+','+date+','+street+','+house
+            +','+city+','+tel+','+check+','
+            );
+            }
+        </script>
+        
+    </section>
+    <section id="pasek">
+        <section id="pusty"></section>
+    </section>
+    <section id="stopka">
+        <h4>Rejestracje do sklepu wykonał: 12345566</h4>
+    </section>
+</body>
+</html>
